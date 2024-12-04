@@ -1,0 +1,11 @@
+.icon {
+  color: #333;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.75s ease;
+}
+
+.icon:active {
+  transform: scale(0.8);
+  transition: transform 0.2s ease;
+}

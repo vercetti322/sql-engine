@@ -1,0 +1,73 @@
+.connection-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 10px 22px;
+  width: 550px;
+  border-radius: 3px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3.5px;
+}
+
+.connection-url {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 6fr 1.5fr;
+}
+.ssl-fields {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.connection-modal h3 {
+  text-align: center;
+  color: #333;
+  padding: 2.5px;
+  margin: 2.5px;
+  font-size: 1.1rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #0009;
+}
+
+.button-group {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 2.5px;
+  padding: 2.5px;
+}
+
+.button-group > button {
+  font-size: 0.75rem;
+  padding: 7.5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-group > button:active {
+  opacity: 0.8;
+}
+
+.button-group .solid {
+  grid-column: 4;
+  color: white;
+  border: none;
+  background-color: var(--sql-blue);
+}
+
+.button-group .outline {
+  grid-column: 5;
+  border: 1.5px solid var(--sql-blue);
+  color: var(--sql-blue);
+  background-color: white;
+}

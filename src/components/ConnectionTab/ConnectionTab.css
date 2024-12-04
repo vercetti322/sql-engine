@@ -1,0 +1,15 @@
+.connection-tab {
+  display: flex;
+  gap: 10px;
+  font-size: 0.75rem;
+  color: #333;
+  padding: 2.5px;
+  margin: 2.5px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.connection-tab p.active {
+  font-weight: bold;
+  border-bottom: 2px solid var(--sql-blue);
+}

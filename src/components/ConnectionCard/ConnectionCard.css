@@ -1,0 +1,23 @@
+.connection-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5px;
+  color: #333;
+  padding: 15px 25px;
+  box-shadow: 0.5px 0.5px 5px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.connection-card > p {
+  font-size: 0.75rem;
+}
+
+.connection-card h3 {
+    color: var(--sql-blue);
+}
+
+.connection-card-list {
+  display: flex;
+  flex-grow: 1;
+  gap: 10px;
+}

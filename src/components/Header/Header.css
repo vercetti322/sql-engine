@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  max-width: 630px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.header h1 {
+  color: var(--sql-blue);
+  padding: 5px;
+  font-size: 2.2rem;
+}
+
+.header p {
+  color: #333;
+  font-size: 1.1rem;
+  padding: 5px;
+}

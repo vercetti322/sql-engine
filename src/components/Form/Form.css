@@ -1,0 +1,32 @@
+.form {
+  display: flex;
+  align-items: center;
+  gap: 7.5px;
+  color: #333;
+  width: 100%;
+  font-size: 0.7rem;
+  padding: 2.5px;
+  margin: 2.5px;
+}
+
+.form label {
+  white-space: nowrap;
+}
+
+.form input {
+  padding: 4px 3px;
+  font-size: 0.7rem;
+  border: none;
+  border-bottom: 1px solid #333;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.form input:focus {
+  border-bottom: 2px solid var(--sql-blue);
+  padding: calc(4px - 0.5px) 3px;
+  outline: none;
+  box-sizing: border-box;
+}
