@@ -12,6 +12,11 @@ const homeStyles = {
 };
 
 export default function App() {
+  // init localStorage for list of form data
+  if (!localStorage.getItem('formDataList')) {
+    localStorage.setItem('formDataList', JSON.stringify([]));
+  }
+
   return (
     <div style={homeStyles}>
       <Header />

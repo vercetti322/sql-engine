@@ -1,21 +1,34 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { createPortal } from 'react-dom';
 import Form from '../Form/Form';
 import './ConnectionModal.css';
+import { dbOptions } from '../../assets/constants.js';
+import ListForm from '../ListForm/ListForm';
+import { reuqiredFields } from '../../assets/constants.js';
 import { useState } from 'react';
 import ConnectionTab from '../ConnectionTab/ConnectionTab';
-import { useFormData } from '../../context/formDataContext';
-import { useFormList } from '../../context/formListContext';
+import useFormData from '../../hooks/useFormData';
 
 export default function ConnectionModal({ open, onClose }) {
   const [tab, setTab] = useState('parameter');
 
-  const { formData, updateFormData, emptyFormData } = useFormData();
+  const { formData, updateFormData } = useFormData();
 
-  const { formList, addFormData, removeFormData } = useFormList();
+  const handleDbChange = (event) => {
+    const { value } = event.target;
+    updateFormData('databaseType', value);
+  };
 
-  const [isFormValid, setIsFormValid] = useState(false);
+  const validateForm = () => {
+    for (let field of reuqiredFields) {
+      if (!formData[field] || formData[field].toString().trim() === '') {
+        alert(`${field} is required`);
+        return false;
+      }
+    }
+
+    return true;
+  };
 
   const handleTab = (newTab) => {
     setTab(newTab);
@@ -23,22 +36,15 @@ export default function ConnectionModal({ open, onClose }) {
 
   const submitForm = (event) => {
     event.preventDefault();
-    if (!isFormValid) return;
-    addFormData(formData);
-    emptyFormData();
+    if (!validateForm()) return;
+    const formDataList = JSON.parse(localStorage.getItem('formDataList'));
+    formDataList.push(formData);
+    localStorage.setItem('formDataList', JSON.stringify(formDataList));
     onClose();
   };
 
   const cancelForm = () => {
-    emptyFormData();
     onClose();
-  };
-
-  const validateForm = () => {
-    const form = document.querySelector('.connection-modal');
-    if (form) {
-      setIsFormValid(form.checkValidity());
-    }
   };
 
   const parameterOpen = tab === 'parameter';
@@ -56,14 +62,13 @@ export default function ConnectionModal({ open, onClose }) {
         <Form
           onChange={(e) => handleChange('connectionName', e.target.value)}
           type={'text'}
-          requried={true}
           label={'Connection Name'}
         />
-        <Form
-          onChange={(e) => handleChange('connectionMethod', e.target.value)}
-          type={'text'}
-          requried={true}
-          label={'Connection Method'}
+        <ListForm
+          label={'Database Type'}
+          options={dbOptions}
+          selectedValue={formData.databaseType}
+          onChange={handleDbChange}
         />
         <ConnectionTab tab={tab} onTabChange={handleTab} />
         {parameterOpen && (
@@ -72,7 +77,6 @@ export default function ConnectionModal({ open, onClose }) {
               <Form
                 onChange={(e) => handleChange('hostName', e.target.value)}
                 type={'text'}
-                requried={true}
                 label={'Hostname'}
               />
               <Form
@@ -81,20 +85,17 @@ export default function ConnectionModal({ open, onClose }) {
                 max={9999}
                 type={'number'}
                 label={'Port'}
-                requried={true}
               />
             </div>
             <Form
               onChange={(e) => handleChange('userName', e.target.value)}
               type={'text'}
               label={'Username'}
-              requried={true}
             />
             <Form
               onChange={(e) => handleChange('password', e.target.value)}
               type={'password'}
               label={'Password'}
-              requried={true}
             />
             <Form
               onChange={(e) => handleChange('defaultSchema', e.target.value)}

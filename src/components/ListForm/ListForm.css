@@ -1,0 +1,31 @@
+.list-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+  width: 100%;
+  font-size: 0.7rem;
+  padding: 2.5px;
+  margin: 2.5px;
+}
+
+.list-form label {
+  white-space: nowrap;
+}
+
+.list-form select {
+  padding: 4px 3px;
+  font-size: 0.7rem;
+  border-radius: 3px;
+}
+
+.list-form select:focus {
+  outline: none;
+  padding: 3.5px 3px;
+  border-radius: 3px;
+  border: 1.5px solid var(--sql-blue);
+}
+
+.list-form select option:disabled {
+  color: #888;
+}

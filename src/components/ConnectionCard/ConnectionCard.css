@@ -13,7 +13,7 @@
 }
 
 .connection-card h3 {
-    color: var(--sql-blue);
+  color: var(--sql-blue);
 }
 
 .connection-card-list {
