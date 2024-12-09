@@ -41,7 +41,7 @@
 
 .button-group {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin: 2.5px;
   padding: 2.5px;
@@ -59,14 +59,21 @@
 }
 
 .button-group .solid {
-  grid-column: 4;
   color: white;
   border: none;
   background-color: var(--sql-blue);
 }
 
+.button-group .solid:nth-child(1) {
+  grid-column: 2;
+}
+
+.button-group .solid:nth-child(2) {
+  grid-column: 3;
+}
+
 .button-group .outline {
-  grid-column: 5;
+  grid-column: 4;
   border: 1.5px solid var(--sql-blue);
   color: var(--sql-blue);
   background-color: white;

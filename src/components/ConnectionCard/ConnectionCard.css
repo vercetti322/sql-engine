@@ -4,8 +4,9 @@
   gap: 2.5px;
   color: #333;
   padding: 15px 25px;
-  box-shadow: 0.5px 0.5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 7.5px rgba(0, 0, 0, 0.2);
   background-color: white;
+  border-radius: 2.5px;
 }
 
 .connection-card > p {
@@ -17,7 +18,6 @@
 }
 
 .connection-card-list {
-  display: flex;
-  flex-grow: 1;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }

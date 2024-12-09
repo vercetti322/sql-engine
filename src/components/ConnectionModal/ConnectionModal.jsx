@@ -103,6 +103,9 @@ export default function ConnectionModal({ open, onClose }) {
               label={'Default Schema'}
             />
             <div className="button-group">
+              <button type="button" className="solid" onClick={cancelForm}>
+                Test Connection
+              </button>
               <button type="submit" className="solid" onClick={submitForm}>
                 Submit
               </button>
@@ -143,7 +146,7 @@ export default function ConnectionModal({ open, onClose }) {
             />
             <div className="button-group">
               <button
-                style={{ gridColumn: 5 }}
+                style={{ gridColumn: 4 }}
                 className="solid"
                 onClick={() => setTab('parameter')}
               >
