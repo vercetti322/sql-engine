@@ -1,0 +1,25 @@
+.editor .heading {
+  color: var(--sql-blue);
+  padding: 2.5px;
+  margin: 2.5px;
+}
+
+.editor .playground {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 10px;
+    width: 100%;
+    padding: 5px;
+}
+
+.playground > * {
+    padding: 7.5px;
+}
+
+.schema {
+    background-color: pink;
+}
+
+.query-editor {
+    background-color: lightblue;
+}

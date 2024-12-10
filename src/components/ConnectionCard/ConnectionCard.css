@@ -3,10 +3,10 @@
   flex-direction: column;
   gap: 2.5px;
   color: #333;
-  padding: 15px 25px;
+  padding: 10px 20px;
   box-shadow: 1px 1px 7.5px rgba(0, 0, 0, 0.2);
   background-color: white;
-  border-radius: 2.5px;
+  border-radius: 5px;
 }
 
 .connection-card > p {
@@ -19,5 +19,7 @@
 
 .connection-card-list {
   display: grid;
+  padding: 10px;
   grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
 }

@@ -47,6 +47,11 @@ export default function ConnectionModal({ open, onClose }) {
     onClose();
   };
 
+  const testConnection = () => {
+    if (!validateForm()) return;
+    onClose();
+  };
+
   const parameterOpen = tab === 'parameter';
 
   if (!open) return null;
@@ -103,11 +108,11 @@ export default function ConnectionModal({ open, onClose }) {
               label={'Default Schema'}
             />
             <div className="button-group">
-              <button type="button" className="solid" onClick={cancelForm}>
+              <button type="button" className="solid" onClick={testConnection}>
                 Test Connection
               </button>
               <button type="submit" className="solid" onClick={submitForm}>
-                Submit
+                Connect
               </button>
               <button type="button" className="outline" onClick={cancelForm}>
                 Cancel
